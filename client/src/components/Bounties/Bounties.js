@@ -12,10 +12,10 @@ class Bounties extends Component {
     render() {
         console.log(this.props);
         return (
-            <div className="container bounty-form pt-5">
+            <div className="bounty-form pt-5">
                 <h1 className="page-title">Bounty Hunter To-Do List</h1>
                 <BountyForm />
-                <div className="todo-container">
+                <div className="todo-container justify-content-center">
                 {this.props.bounties.map(bounty => (
                     <Bounty
                         firstName={bounty.firstName}

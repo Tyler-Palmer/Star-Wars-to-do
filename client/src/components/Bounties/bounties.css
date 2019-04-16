@@ -6,3 +6,9 @@
     text-shadow: 4px 3px 7px rgba(0, 0, 0, 0.75);
 }
 
+.todo-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}

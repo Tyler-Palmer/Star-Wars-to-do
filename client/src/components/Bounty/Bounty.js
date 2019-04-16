@@ -35,26 +35,28 @@ class Bounty extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(`Submit action: ${this.state.firstName} with id ${this.state.bountyID} was edited`)
-        const id = this.state.bountyID
+        console.log(
+            `Submit action: ${this.state.firstName} with id ${
+                this.state.bountyID
+            } was edited`
+        );
+        const id = this.state.bountyID;
         const editedBounty = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             type: this.state.type,
-            bountyAmount: this.state.bountyAmount,
+            bountyAmount: this.state.bountyAmount
         };
-        this.props.handleEdit(id, editedBounty)
-        this.editToggler()
+        this.props.handleEdit(id, editedBounty);
+        this.editToggler();
     };
 
     componentDidMount() {
-        console.log(`name: ${this.props.firstName} has id: ${this.props.id}`)
+        console.log(`name: ${this.props.firstName} has id: ${this.props.id}`);
     }
-    
 
     render() {
         return (
-            <div className="container justify-content-sm-center">
                 <Fragment>
                     {this.state.editing ? (
                         <form
@@ -114,56 +116,54 @@ class Bounty extends Component {
                                 >
                                     Close
                                 </button>
-                                <button 
+                                <button
                                     onClick={this.handleSubmit}
-                                    className="btn btn-primary">
+                                    className="btn btn-primary"
+                                >
                                     Submit Edit
                                 </button>
                             </div>
                         </form>
                     ) : (
-                        <div className="container">
-                            <div className="card text-white bg-dark mb-3 col col-xs">
-                                <div className="card-body">
-                                    <div className="card-header bg-primary">
-                                        <h1>Bounty</h1>
-                                    </div>
-                                    <h2 className="card-title">
-                                        {this.props.firstName}
-                                    </h2>
-                                    <h2 className="card-title">
-                                        {this.props.lastName}
-                                    </h2>
-                                    <h3 className="card-title">
-                                        {this.props.type}
-                                    </h3>
-                                    <h3 className="card-title">
-                                        {`$ ${this.props.bountyAmount}`}
-                                    </h3>
-                                    <div className="row justify-content-center">
-                                        <button
-                                            className="btn btn-primary mr-4"
-                                            onClick={() =>
-                                                this.props.handleDelete(
-                                                    this.props.id
-                                                )
-                                            }
-                                        >
-                                            Delete
-                                        </button>
-                                        <button
-                                            className="btn btn-primary mr-4"
-                                            onClick={this.editToggler}
-                                        >
-                                            Edit
-                                        </button>
-                                    </div>
+                        <div className="card text-white bg-dark mb-3 mr-2 col-xs-12 col-sm-10 col-md-5 col-xl-3">
+                            <div className="card-body">
+                                <div className="card-header bg-primary">
+                                    <h1>Bounty</h1>
+                                </div>
+                                <h2 className="card-title">
+                                    {this.props.firstName}
+                                </h2>
+                                <h2 className="card-title">
+                                    {this.props.lastName}
+                                </h2>
+                                <h3 className="card-title">
+                                    {this.props.type}
+                                </h3>
+                                <h3 className="card-title">
+                                    {`$ ${this.props.bountyAmount}`}
+                                </h3>
+                                <div className="row justify-content-center">
+                                    <button
+                                        className="btn btn-primary mr-4"
+                                        onClick={() =>
+                                            this.props.handleDelete(
+                                                this.props.id
+                                            )
+                                        }
+                                    >
+                                        Delete
+                                    </button>
+                                    <button
+                                        className="btn btn-primary mr-4"
+                                        onClick={this.editToggler}
+                                    >
+                                        Edit
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     )}
                 </Fragment>
-            </div>
         );
     }
 }

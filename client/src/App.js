@@ -5,7 +5,7 @@ import Bounties from './components/Bounties/Bounties'
 class App extends Component {
   render() {
     return (
-      <div className="background">
+      <div className="background container">
           
           <Switch>
             <Route path='/' component={Bounties}></Route>
