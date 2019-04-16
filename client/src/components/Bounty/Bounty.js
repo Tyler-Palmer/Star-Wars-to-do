@@ -9,14 +9,20 @@ class Bounty extends Component {
             firstName: "",
             lastName: "",
             type: "",
-            bountyAmount: ""
+            bountyAmount: "",
+            bountyID: ""
         };
     }
 
     editToggler = () => {
         this.setState(prevState => {
             return {
-                editing: !prevState.editing
+                editing: !prevState.editing,
+                firstName: this.props.firstName,
+                lastName: this.props.lastName,
+                type: this.props.type,
+                bountyAmount: this.props.bountyAmount,
+                bountyID: this.props.id
             };
         });
     };
@@ -29,13 +35,22 @@ class Bounty extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        console.log(`Submit action: ${this.state.firstName} with id ${this.state.bountyID} was edited`)
+        const id = this.state.bountyID
         const editedBounty = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             type: this.state.type,
-            bountyAmount: this.state.bountyAmount
+            bountyAmount: this.state.bountyAmount,
         };
+        this.props.handleEdit(id, editedBounty)
+        this.editToggler()
     };
+
+    componentDidMount() {
+        console.log(`name: ${this.props.firstName} has id: ${this.props.id}`)
+    }
+    
 
     render() {
         return (
@@ -100,7 +115,7 @@ class Bounty extends Component {
                                     Close
                                 </button>
                                 <button 
-                                    onClick={this.props.handleEdit}
+                                    onClick={this.handleSubmit}
                                     className="btn btn-primary">
                                     Submit Edit
                                 </button>

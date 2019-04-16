@@ -24,7 +24,11 @@ const bountySchema = new Schema({
     "bountyAmount": {
         type: Number,
         required: true
-    }
+    },
+    // "_id": {
+    //     type: String,
+    //     unique: true
+    // }
 })
 
 module.exports = mongoose.model('Bounty', bountySchema)

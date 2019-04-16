@@ -68,13 +68,13 @@ export default class BountyProvider extends Component {
 
     //Put
 
-
-    handleEdit = (id, updates) => {
+    handleEdit = (id, editedBounty) => {
         console.log(id)
-        console.log(updates)
+        console.log(editedBounty)
         console.log('handleEdit fired')
-        const editedBounty = ""
-        axios.put('/bounties/:id', editedBounty).then(response => {
+        const updates = editedBounty
+        
+        axios.put(`/bounties/${id}`, updates).then(response => {
             console.log(response)
             this.setState(prevState => {
                 return{

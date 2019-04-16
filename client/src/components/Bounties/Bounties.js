@@ -25,6 +25,7 @@ class Bounties extends Component {
                         key={bounty._id}
                         id={bounty._id}
                         handleDelete={this.props.handleDelete}
+                        handleEdit={this.props.handleEdit}
                     />
                 ))}
                 </div>
