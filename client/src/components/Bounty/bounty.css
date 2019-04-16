@@ -1,0 +1,14 @@
+
+/* .header{
+    background-color: g
+} */
+
+.edit-form{
+    background-color: rgba(250, 2, 2, 0.75);
+    border-radius: 1%;
+    padding: 15px;
+}
+
+.card{
+    box-shadow: 6px 10px 15px 0px rgba(0,0,0,0.7);
+}

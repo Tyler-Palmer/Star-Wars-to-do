@@ -2,20 +2,9 @@ const express = require('./node_modules/express')
 const app = express()
 const mongoose = require('mongoose')
 const morgan = require('./node_modules/morgan')
+require("dotenv").config();
 
-
-// Simualated Database
-
-// let bounties = [
-//     {
-//         "First Name": "Duc",
-//         "Last Name": "Pham",
-//         "Living": true,
-//         "Bounty Amount": "1M",
-//         "Type": "Jedi",
-//         "ID": uuid()
-//     }
-// ]
+const PORT = process.env.PORT || 8000;
 
 //Middleware
 app.use(morgan('dev'))
@@ -40,6 +29,6 @@ mongoose.connect('mongodb://localhost:27017/bounties-list', { useNewUrlParser: t
 
 
 //Server
-app.listen(9000, () => {
+app.listen(PORT, () => {
     console.log('listening at port 9000')
 })
