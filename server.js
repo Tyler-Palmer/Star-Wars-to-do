@@ -3,12 +3,16 @@ const app = express()
 const mongoose = require('mongoose')
 const morgan = require('./node_modules/morgan')
 require("dotenv").config();
+const path = require("path")
+
 
 const PORT = process.env.PORT || 8000;
 
 //Middleware
 app.use(morgan('dev'))
 app.use(express.json())
+app.use(express.static(path.join(__dirname, "client", "build")))
+
 
 //Routes
 
@@ -22,11 +26,13 @@ app.use((err, req, res, next) => {
 })
 
 //Connect to the Database
-mongoose.connect('mongodb://localhost:27017/bounties-list', { useNewUrlParser: true }, () => {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/bounties-list', { useNewUrlParser: true }, () => {
     console.log("Running smoothly, guv'nor!")
 })
 
-
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 //Server
 app.listen(PORT, () => {

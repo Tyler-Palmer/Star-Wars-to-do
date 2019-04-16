@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"bounties-list.bounties"},{"v":1,"unique":true,"key":{"firstName":1},"name":"firstName_1","ns":"bounties-list.bounties","background":true},{"v":1,"unique":true,"key":{"lastName":1},"name":"lastName_1","ns":"bounties-list.bounties","background":true}]}
